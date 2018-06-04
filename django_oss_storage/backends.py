@@ -200,7 +200,7 @@ class OssStorage(Storage):
     def url(self, name, expire=3600):
         key = self._get_key_name(name)
         li = self.end_point.split("://")
-        url = li[0] + "://" + self.bucket_name + "." + li[1] + self.location  + key
+        url = li[0] + "://" + self.bucket_name + "." + li[1] + "/"  + key
         return url
 #         return self.bucket.sign_url('GET', key, expire)
 
