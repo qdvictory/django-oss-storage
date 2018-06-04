@@ -199,10 +199,10 @@ class OssStorage(Storage):
 
     def url(self, name, expire=3600):
         key = self._get_key_name(name)
-#         li = self.end_point.split("://")
-#         url = li[0] + "://" + self.bucket_name + "." + li[1] +  "/" + key)
-#         return url
-        return self.bucket.sign_url('GET', key, expire)
+        li = self.end_point.split("://")
+        url = li[0] + "://" + o.bucket_name + "." + li[1] + o.location  + key
+        return url
+#         return self.bucket.sign_url('GET', key, expire)
 
     def delete(self, name):
         name = self._get_key_name(name)
